@@ -1,3 +1,6 @@
 [submodule "CppTweener"]
 	path = CppTweener
 	url = https://github.com/devmario/CppTweener.git
+[submodule "json-cpp"]
+	path = json-cpp
+	url = https://github.com/devmario/json-cpp.git
