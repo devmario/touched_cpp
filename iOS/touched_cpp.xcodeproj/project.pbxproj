@@ -21,6 +21,7 @@
 		AC83A90616C4F8DA0091D69A /* TCSnapPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83A90016C4F8DA0091D69A /* TCSnapPage.cpp */; };
 		AC83A90716C4F8DA0091D69A /* TCSnapPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC83A90016C4F8DA0091D69A /* TCSnapPage.cpp */; };
 		AC83A91516C4F9060091D69A /* libCppTweener.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A90E16C4F8DE0091D69A /* libCppTweener.a */; };
+		AC83A98516C4FAD30091D69A /* libjson-cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A98216C4FAC10091D69A /* libjson-cpp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = AC83A8AE16C4F87D0091D69A;
 			remoteInfo = CppTweenerTests;
+		};
+		AC83A98116C4FAC10091D69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83A97C16C4FAC10091D69A /* json-cpp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AC83A91F16C4FA010091D69A;
+			remoteInfo = "json-cpp";
+		};
+		AC83A98316C4FAC10091D69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83A97C16C4FAC10091D69A /* json-cpp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AC83A93016C4FA010091D69A;
+			remoteInfo = "json-cppTests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -77,6 +92,7 @@
 		AC83A90016C4F8DA0091D69A /* TCSnapPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TCSnapPage.cpp; path = ../../TCSnapPage.cpp; sourceTree = "<group>"; };
 		AC83A90116C4F8DA0091D69A /* TCSnapPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCSnapPage.h; path = ../../TCSnapPage.h; sourceTree = "<group>"; };
 		AC83A90816C4F8DE0091D69A /* CppTweener.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CppTweener.xcodeproj; path = ../CppTweener/iOS/CppTweener.xcodeproj; sourceTree = "<group>"; };
+		AC83A97C16C4FAC10091D69A /* json-cpp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "json-cpp.xcodeproj"; path = "../json-cpp/iOS/json-cpp.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC83A8D516C4F8BE0091D69A /* Foundation.framework in Frameworks */,
+				AC83A98516C4FAD30091D69A /* libjson-cpp.a in Frameworks */,
 				AC83A91516C4F9060091D69A /* libCppTweener.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +123,7 @@
 		AC83A8C816C4F8BE0091D69A = {
 			isa = PBXGroup;
 			children = (
+				AC83A97C16C4FAC10091D69A /* json-cpp.xcodeproj */,
 				AC83A90816C4F8DE0091D69A /* CppTweener.xcodeproj */,
 				AC83A8D616C4F8BE0091D69A /* touched_cpp */,
 				AC83A8EB16C4F8BF0091D69A /* touched_cppTests */,
@@ -183,6 +201,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AC83A97D16C4FAC10091D69A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC83A98216C4FAC10091D69A /* libjson-cpp.a */,
+				AC83A98416C4FAC10091D69A /* json-cppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,6 +273,10 @@
 					ProductGroup = AC83A90916C4F8DE0091D69A /* Products */;
 					ProjectRef = AC83A90816C4F8DE0091D69A /* CppTweener.xcodeproj */;
 				},
+				{
+					ProductGroup = AC83A97D16C4FAC10091D69A /* Products */;
+					ProjectRef = AC83A97C16C4FAC10091D69A /* json-cpp.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -268,6 +299,20 @@
 			fileType = wrapper.cfbundle;
 			path = CppTweenerTests.octest;
 			remoteRef = AC83A90F16C4F8DE0091D69A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC83A98216C4FAC10091D69A /* libjson-cpp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libjson-cpp.a";
+			remoteRef = AC83A98116C4FAC10091D69A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC83A98416C4FAC10091D69A /* json-cppTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "json-cppTests.octest";
+			remoteRef = AC83A98316C4FAC10091D69A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -400,7 +445,10 @@
 				DSTROOT = /tmp/touched_cpp.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "touched_cpp/touched_cpp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../CppTweener\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../CppTweener\"",
+					"\"$(SRCROOT)/../json-cpp/include\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -413,7 +461,10 @@
 				DSTROOT = /tmp/touched_cpp.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "touched_cpp/touched_cpp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../CppTweener\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../CppTweener\"",
+					"\"$(SRCROOT)/../json-cpp/include\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

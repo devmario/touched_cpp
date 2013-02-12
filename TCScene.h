@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <list>
-#include "json.h"
+#include <json/json.h>
 
 namespace Touched {
 	class TCScene {
