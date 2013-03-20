@@ -26,19 +26,16 @@ TCPage::TCPage() {
 	width_right_margin = 0;
 	enable = true;
 	is_movement = true;
+	enable_rollback_scroll = true;
 	Reset();
 }
 
 TCPage::~TCPage() {
+	Clean();
 }
 
 void TCPage::Clean() {
-	std::list<Page*>::iterator _it = page_list.begin();
-	while(page_list.end() != _it) {
-		Page* _page = *_it;
-		FreePage(_page->address);
-		_it++;
-	}
+	ReloadData();
 }
 
 void TCPage::ReloadData() {
@@ -56,12 +53,12 @@ void TCPage::Reset() {
 	touch_address = NULL;
 	touch_position = 0.0;
 	
-	position = 0.0;
+	position = width_left_margin;
 	force = 0.0;
 	
 	size = 0.0;
 	
-	step = 0.0;
+	step = width_left_margin;
 	start_index = 0;
 	
 	x_translate = 0;
@@ -112,12 +109,14 @@ void TCPage::CalculateMovement() {
 		} else {
 			if(position > width_left_margin) {
 				//처음리스트에서 더욱더 스크롤했을시
-				position += (width_left_margin - position) * 0.2;
+				if(enable_rollback_scroll)
+					position += (width_left_margin - position) * 0.2;
 				force *= 0.9;
 			} else if(size > _w_avail) {
 				if(position < -size + GetSize() - width_right_margin) {
 					//마지막리스트에서 더욱더 스크롤했을시
-					position += (-size + GetSize() - width_right_margin - position) * 0.2;
+					if(enable_rollback_scroll)
+						position += (-size + GetSize() - width_right_margin - position) * 0.2;
 					force *= 0.9;
 				} else {
 					force *= 0.95;
@@ -125,7 +124,8 @@ void TCPage::CalculateMovement() {
 			} else {
 				if(position < -size + GetSize() - width_right_margin) {
 					//마지막리스트에서 더욱더 스크롤했을시
-					position += (width_left_margin - position) * 0.2;
+					if(enable_rollback_scroll)
+						position += (width_left_margin - position) * 0.2;
 					force *= 0.9;
 				} else {
 					force *= 0.95;

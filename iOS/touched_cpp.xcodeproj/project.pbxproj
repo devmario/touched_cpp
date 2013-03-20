@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC3071ED16F9805900F9C97F /* TCMovementTab.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC3071EC16F9805900F9C97F /* TCMovementTab.cpp */; };
+		AC3071EE16F9805900F9C97F /* TCMovementTab.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC3071EC16F9805900F9C97F /* TCMovementTab.cpp */; };
 		AC83A8D516C4F8BE0091D69A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A8D416C4F8BE0091D69A /* Foundation.framework */; };
 		AC83A8E416C4F8BF0091D69A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A8E316C4F8BF0091D69A /* SenTestingKit.framework */; };
 		AC83A8E616C4F8BF0091D69A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC83A8E516C4F8BF0091D69A /* UIKit.framework */; };
@@ -75,6 +77,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AC3071E716F9804B00F9C97F /* TCMovementTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCMovementTab.h; sourceTree = "<group>"; };
+		AC3071EC16F9805900F9C97F /* TCMovementTab.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCMovementTab.cpp; sourceTree = "<group>"; };
 		AC83A8D116C4F8BE0091D69A /* libtouched_cpp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtouched_cpp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC83A8D416C4F8BE0091D69A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC83A8D816C4F8BE0091D69A /* touched_cpp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "touched_cpp-Prefix.pch"; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				AC83A8FF16C4F8DA0091D69A /* TCScene.h */,
 				AC83A90016C4F8DA0091D69A /* TCSnapPage.cpp */,
 				AC83A90116C4F8DA0091D69A /* TCSnapPage.h */,
+				AC3071E716F9804B00F9C97F /* TCMovementTab.h */,
+				AC3071EC16F9805900F9C97F /* TCMovementTab.cpp */,
 				AC83A8D716C4F8BE0091D69A /* Supporting Files */,
 			);
 			path = touched_cpp;
@@ -352,6 +358,7 @@
 				AC83A90216C4F8DA0091D69A /* TCPage.cpp in Sources */,
 				AC83A90416C4F8DA0091D69A /* TCScene.cpp in Sources */,
 				AC83A90616C4F8DA0091D69A /* TCSnapPage.cpp in Sources */,
+				AC3071ED16F9805900F9C97F /* TCMovementTab.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +370,7 @@
 				AC83A90316C4F8DA0091D69A /* TCPage.cpp in Sources */,
 				AC83A90516C4F8DA0091D69A /* TCScene.cpp in Sources */,
 				AC83A90716C4F8DA0091D69A /* TCSnapPage.cpp in Sources */,
+				AC3071EE16F9805900F9C97F /* TCMovementTab.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

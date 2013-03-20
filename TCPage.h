@@ -32,6 +32,8 @@ namespace Touched {
 		bool is_movement;
 		float x_translate;
 		
+		bool enable_rollback_scroll;
+		
 		typedef struct Page {
 			void* address;
 			float position;
@@ -98,6 +100,14 @@ namespace Touched {
 		
 		void SetWithRightMargin(float _margin) {
 			width_right_margin = _margin;
+		}
+		
+		void SetWithLeftMargin(float _margin) {
+			width_left_margin = _margin;
+		}
+		
+		void SetEnableRollbackScroll(float _enable) {
+			enable_rollback_scroll = _enable;
 		}
 	};
 }

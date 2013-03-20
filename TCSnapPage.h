@@ -19,7 +19,7 @@ namespace Touched {
 		
 	public:
 		TCSnapPage();
-		~TCSnapPage();
+		virtual ~TCSnapPage();
 		
 		virtual void TouchEndOrCancel(void* _address, float _position);
 		
