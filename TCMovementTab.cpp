@@ -11,10 +11,10 @@
 using namespace Touched;
 
 TCMovementTab::TCMovementTab(float _width, int _maxidx, int _idx) {
-	width = _width;
+	dir_width = width = _width;
 	max_index = _maxidx;
 	index = _idx;
-	x = 0;
+	dir_x = x = 0;
 }
 
 TCMovementTab::~TCMovementTab() {
@@ -26,12 +26,14 @@ void TCMovementTab::Update(float _tick) {
 	tweener.step(milliseconds);
 }
 
-void TCMovementTab::SetWidth(float _width) {
-	dir_width = _width;
-	TweenStart();
+void TCMovementTab::TCSetWidth(float _width) {
+	if(dir_width != _width) {
+		dir_width = _width;
+		TweenStart();
+	}
 }
 
-float TCMovementTab::GetWidth() {
+float TCMovementTab::TCGetWidth() {
 	return width;
 }
 
@@ -44,12 +46,19 @@ int TCMovementTab::GetMaxIndex() {
 }
 
 void TCMovementTab::SetIndex(int _idx) {
-	dir_x = (float)index / (float)max_index * (float)dir_width;
-	TweenStart();
+	if(index != _idx) {
+		index = _idx;
+		dir_x = (float)index / (float)max_index * (float)dir_width;
+		TweenStart();
+	}
 }
 
 int TCMovementTab::GetIndex() {
 	return index;
+}
+
+float TCMovementTab::GetX() {
+	return x;
 }
 
 void TCMovementTab::TweenStart() {

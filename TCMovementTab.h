@@ -31,18 +31,19 @@ namespace Touched {
 		TCMovementTab(float _width, int _maxidx, int _idx);
 		virtual ~TCMovementTab();
 		
-		void Update(float _tick);
+		virtual void Update(float _tick);
 		
-		void SetWidth(float _width);
-		float GetWidth();
+		virtual void TCSetWidth(float _width);
+		virtual float TCGetWidth();
 		
-		void SetMaxIndex(int _maxidx);
-		int GetMaxIndex();
+		virtual void SetMaxIndex(int _maxidx);
+		virtual int GetMaxIndex();
 		
-		void SetIndex(int _idx);
-		int GetIndex();
+		virtual void SetIndex(int _idx);
+		virtual int GetIndex();
+		virtual float GetX();
 		
-		void TweenStart();
+		virtual void TweenStart();
 		
 		virtual void onStart(TweenerParam& param);
 		virtual void onStep(TweenerParam& param);
