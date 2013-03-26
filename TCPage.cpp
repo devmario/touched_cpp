@@ -27,29 +27,10 @@ TCPage::TCPage() {
 	enable = true;
 	is_movement = true;
 	enable_rollback_scroll = true;
-	Reset();
+	Init();
 }
 
-TCPage::~TCPage() {
-	Clean();
-}
-
-void TCPage::Clean() {
-	ReloadData();
-}
-
-void TCPage::ReloadData() {
-	std::list<Page*>::iterator _it = page_list.begin();
-	while(page_list.end() != _it) {
-		Page* _page = *_it;
-		_it++;
-		FreePage(_page->address);
-		delete _page;
-	}
-	page_list.clear();
-}
-
-void TCPage::Reset() {
+void TCPage::Init() {
 	touch_address = NULL;
 	touch_position = 0.0;
 	
@@ -62,6 +43,30 @@ void TCPage::Reset() {
 	start_index = 0;
 	
 	x_translate = 0;
+}
+
+TCPage::~TCPage() {
+	Clean();
+}
+
+void TCPage::Clean() {
+	std::list<Page*>::iterator _it = page_list.begin();
+	while(page_list.end() != _it) {
+		Page* _page = *_it;
+		_it++;
+		FreePage(_page->address);
+		delete _page;
+	}
+	page_list.clear();
+}
+
+void TCPage::ReloadData() {
+	Clean();
+	Update();
+}
+
+void TCPage::Reset() {
+	Init();
 	
 	ReloadData();
 }

@@ -26,6 +26,8 @@ namespace Touched {
 		
 		std::string GetName();
 		
+		bool GetIsLoadedScene();
+		
 		virtual void PreLoad(const Json::Value _value, bool _is_reload) = 0;
 		virtual bool ReadyLoad(bool _is_reload) = 0;
 		virtual void Load(const Json::Value _value, bool _is_reload) = 0;

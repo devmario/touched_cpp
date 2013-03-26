@@ -55,6 +55,8 @@ namespace Touched {
 		TCPage();
 		virtual ~TCPage();
 		
+		void Init();
+		
 		virtual void Clean();
 		
 		virtual int GetPageLength()=0;

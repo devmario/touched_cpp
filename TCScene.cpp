@@ -23,6 +23,10 @@ std::string TCScene::GetName() {
 	return name;
 }
 
+bool TCScene::GetIsLoadedScene() {
+	return loaded || need_load;
+}
+
 void TCScene::Update(bool _for_load) {
 	if(need_reload) {
 		if(!_for_load) {
