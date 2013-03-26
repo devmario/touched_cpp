@@ -53,9 +53,9 @@ void TCPage::Clean() {
 	std::list<Page*>::iterator _it = page_list.begin();
 	while(page_list.end() != _it) {
 		Page* _page = *_it;
-		_it++;
 		FreePage(_page->address);
 		delete _page;
+		_it++;
 	}
 	page_list.clear();
 }
@@ -67,7 +67,6 @@ void TCPage::ReloadData() {
 
 void TCPage::Reset() {
 	Init();
-	
 	ReloadData();
 }
 
