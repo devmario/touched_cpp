@@ -62,6 +62,20 @@
 			remoteGlobalIDString = AC83A93016C4FA010091D69A;
 			remoteInfo = "json-cppTests";
 		};
+		ACFBCA791709708B0016725B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83A90816C4F8DE0091D69A /* CppTweener.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AC83A89C16C4F87D0091D69A;
+			remoteInfo = CppTweener;
+		};
+		ACFBCA7B1709708B0016725B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC83A97C16C4FAC10091D69A /* json-cpp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AC83A91E16C4FA010091D69A;
+			remoteInfo = "json-cpp";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -230,6 +244,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				ACFBCA7A1709708B0016725B /* PBXTargetDependency */,
+				ACFBCA7C1709708B0016725B /* PBXTargetDependency */,
 			);
 			name = touched_cpp;
 			productName = touched_cpp;
@@ -381,6 +397,16 @@
 			isa = PBXTargetDependency;
 			target = AC83A8D016C4F8BE0091D69A /* touched_cpp */;
 			targetProxy = AC83A8E816C4F8BF0091D69A /* PBXContainerItemProxy */;
+		};
+		ACFBCA7A1709708B0016725B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CppTweener;
+			targetProxy = ACFBCA791709708B0016725B /* PBXContainerItemProxy */;
+		};
+		ACFBCA7C1709708B0016725B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "json-cpp";
+			targetProxy = ACFBCA7B1709708B0016725B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
