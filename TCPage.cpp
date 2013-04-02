@@ -259,8 +259,8 @@ void TCPage::TouchMove(void* _address, float _position) {
 		
 		//프레임별 경과시간
 		float _delta = (((next_time.tv_sec * 1000000.0) + next_time.tv_usec) - ((cur_time.tv_sec * 1000000.0) + cur_time.tv_usec)) / 1000000.0;
-		if(_delta < 0.01)
-			_delta = 0.01;
+		if(_delta < 0.1)
+			_delta = 0.1;
 		force_delta = force / _delta * 0.02;
 		
 		cur_time = next_time;

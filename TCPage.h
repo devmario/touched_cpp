@@ -17,10 +17,25 @@ namespace Touched {
 		void* touch_address;
 		float touch_position;
 		
-		float position;
 		float force;
 		
+		/* 다음 3개의 속성들은 scroller도 써야함*/
+		
+		//위치
+		float position;
+		
+		float GetVisiblePosition() {
+			return (-position) / size;
+		}
+		
+		//전체사이즈
 		float size;
+		
+		//화면에 보이는 사이즈(비율임)
+		//(GetSize() - width_left_margin - width_right_margin) / size
+		float GetVisiblePer() {
+			return (GetSize() - width_left_margin - width_right_margin) / size;
+		}
 		
 		float step;
 		int start_index;
