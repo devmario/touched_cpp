@@ -25,7 +25,7 @@ namespace Touched {
 		float position;
 		
 		float GetVisiblePosition() {
-			return (-position) / size;
+			return (-position+width_left_margin) / size;
 		}
 		
 		//전체사이즈
@@ -34,7 +34,10 @@ namespace Touched {
 		//화면에 보이는 사이즈(비율임)
 		//(GetSize() - width_left_margin - width_right_margin) / size
 		float GetVisiblePer() {
-			return (GetSize() - width_left_margin - width_right_margin) / size;
+			if(GetSize() > size)
+				return 1.0;
+			else
+				return (GetSize() - width_left_margin - width_right_margin) / size;
 		}
 		
 		float step;
