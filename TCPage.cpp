@@ -27,6 +27,7 @@ TCPage::TCPage() {
 	enable = true;
 	is_movement = true;
 	enable_rollback_scroll = true;
+	use_refresh = false;
 	Init();
 }
 

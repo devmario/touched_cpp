@@ -34,7 +34,7 @@ namespace Touched {
 		//화면에 보이는 사이즈(비율임)
 		//(GetSize() - width_left_margin - width_right_margin) / size
 		float GetVisiblePer() {
-			if(GetSize() > size)
+			if((GetSize()  - width_left_margin - width_right_margin) > size)
 				return 1.0;
 			else
 				return (GetSize() - width_left_margin - width_right_margin) / size;
@@ -49,6 +49,7 @@ namespace Touched {
 		bool enable;
 		bool is_movement;
 		float x_translate;
+		bool use_refresh;
 		
 		bool enable_rollback_scroll;
 		
@@ -129,6 +130,32 @@ namespace Touched {
 		void SetEnableRollbackScroll(float _enable) {
 			enable_rollback_scroll = _enable;
 		}
+		
+		//todo today GFFeed에서 구현해야함, 게스트 로그인 구현해야함
+		void SetUseRefresh(bool _use) {
+			use_refresh = _use;
+		};
+		
+		virtual int GetRefreshIndex(bool _dir) {
+			if(_dir)
+				return -1;
+			else
+				return GetPageLength();
+		};
+		
+		virtual float GetRefreshPageSize(bool _dir) {
+			return GetPageSize(GetRefreshIndex(_dir));
+		};
+		
+		virtual void* AllocRefreshPage(bool _dir) {
+			return NULL;
+		};
+		
+		virtual void FreeRefreshPage(bool _dir, void* _address) {
+		};
+		
+		virtual void UpdateRefreshPage(void* _address, float _position) {
+		};
 	};
 }
 
