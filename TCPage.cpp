@@ -27,7 +27,6 @@ TCPage::TCPage() {
 	enable = true;
 	is_movement = true;
 	enable_rollback_scroll = true;
-	use_refresh = false;
 	Init();
 }
 
@@ -102,12 +101,15 @@ void TCPage::CalculateMovement() {
 		return;
 	//물리움직임
 	position += force;
+	
+	float _w_avail = GetSize() - width_left_margin - width_right_margin;
+	float _w_total = -size + GetSize() - width_right_margin;
+	
 	if(touch_address) {
 		//터치시
 		force = 0.0;
 	} else {
 		//터치 땠을때
-		float _w_avail = GetSize() - width_left_margin - width_right_margin;
 		if(is_center && size < _w_avail) {
 			position += (GetSize() * 0.5 - size * 0.5  - position) * 0.2;
 			force *= 0.9;
@@ -118,16 +120,16 @@ void TCPage::CalculateMovement() {
 					position += (width_left_margin - position) * 0.2;
 				force *= 0.9;
 			} else if(size > _w_avail) {
-				if(position < -size + GetSize() - width_right_margin) {
+				if(position < _w_total) {
 					//마지막리스트에서 더욱더 스크롤했을시
 					if(enable_rollback_scroll)
-						position += (-size + GetSize() - width_right_margin - position) * 0.2;
+						position += (_w_total - position) * 0.2;
 					force *= 0.9;
 				} else {
 					force *= 0.95;
 				}
 			} else {
-				if(position < -size + GetSize() - width_right_margin) {
+				if(position < _w_total) {
 					//마지막리스트에서 더욱더 스크롤했을시
 					if(enable_rollback_scroll)
 						position += (width_left_margin - position) * 0.2;
@@ -138,6 +140,33 @@ void TCPage::CalculateMovement() {
 			}
 		}
 	}
+	
+	//is_center는 아직안함...
+//	if(size < _w_avail) {
+//		if(position > width_left_margin + 1) {
+//			FetchRefresh(true, position - width_left_margin);
+//		} else if(position < width_left_margin - 1) {
+//			FetchRefresh(false, width_left_margin - position);
+//		} else {
+//			UnfetchRefresh(position - width_left_margin, width_left_margin - position);
+//		}
+//	} else {
+//		if(position > width_left_margin + 1) {
+//			FetchRefresh(true, position - width_left_margin);
+//		} else if(size > _w_avail) {
+//			if(position < _w_total - 1) {
+//				FetchRefresh(false, _w_total - position);
+//			} else {
+//				UnfetchRefresh(position - width_left_margin, _w_total - position);
+//			}
+//		} else {
+//			if(position < _w_total - 1) {
+//				FetchRefresh(false, position - width_left_margin);
+//			} else {
+//				UnfetchRefresh(position - width_left_margin, position - width_left_margin);
+//			}
+//		}
+//	}
 }
 
 #define ALLOCATED_MARGIN 0.5//For PageSnap
@@ -150,8 +179,8 @@ void TCPage::CalculateStartIndex(float _change_position) {
 			step += GetPageSize(start_index);
 			start_index++;
 		}
-	} else if(step - ALLOCATED_MARGIN > 0.0) {
-		while (step - ALLOCATED_MARGIN > 0.0) {
+	} else if(step - ALLOCATED_MARGIN > width_left_margin) {
+		while (step - ALLOCATED_MARGIN > width_left_margin) {
 			start_index--;
 			step -= GetPageSize(start_index);
 		}
