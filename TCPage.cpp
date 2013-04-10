@@ -102,14 +102,15 @@ void TCPage::CalculateMovement() {
 	//물리움직임
 	position += force;
 	
-	float _w_avail = GetSize() - width_left_margin - width_right_margin;
-	float _w_total = -size + GetSize() - width_right_margin;
-	
 	if(touch_address) {
 		//터치시
 		force = 0.0;
 	} else {
 		//터치 땠을때
+		
+		float _w_avail = GetSize() - width_left_margin - width_right_margin;
+		float _w_total = -size + GetSize() - width_right_margin;
+		
 		if(is_center && size < _w_avail) {
 			position += (GetSize() * 0.5 - size * 0.5  - position) * 0.2;
 			force *= 0.9;
@@ -289,8 +290,8 @@ void TCPage::TouchMove(void* _address, float _position) {
 		
 		//프레임별 경과시간
 		float _delta = (((next_time.tv_sec * 1000000.0) + next_time.tv_usec) - ((cur_time.tv_sec * 1000000.0) + cur_time.tv_usec)) / 1000000.0;
-		if(_delta < 0.1)
-			_delta = 0.1;
+		if(_delta < 0.01)
+			_delta = 0.01;
 		force_delta = force / _delta * 0.02;
 		
 		cur_time = next_time;
