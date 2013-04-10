@@ -25,8 +25,11 @@ namespace Touched {
 		float position;
 		
 		float GetVisiblePosition() {
-			return (-position+width_left_margin) / size;
-		}
+			if(size > 0.0)
+				return (-position+width_left_margin) / size;
+			else
+				return (-position+width_left_margin) / GetSize();
+		};
 		
 		//전체사이즈
 		float size;
