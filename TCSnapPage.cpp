@@ -24,14 +24,16 @@ void TCSnapPage::CalculateMovement() {
 }
 
 void TCSnapPage::GoPage(int _index, short ptransition) {
+	
 	if(_index != current_index) {
 		current_index = _index;
-		ChangedIndex(current_index);
 	}
 	if(current_index < 0)
 		current_index = 0;
 	if(current_index > GetPageLength() - 1)
 		current_index = GetPageLength() - 1;
+	
+	ChangedIndex(current_index);
 	
 	float _size = 0.0;
 	for(int i = 0; i < current_index; i++) {
