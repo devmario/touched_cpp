@@ -169,6 +169,44 @@ void TCSceneManager::ClearHistory() {
 	}
 }
 
+Json::Value TCSceneManager::get_pre_value() {
+	std::list<Json::Value>::iterator it = value_list.end();
+	if(it == value_list.begin())
+		return Json::nullValue;
+	it--;
+	if(it == value_list.begin())
+		return Json::nullValue;
+	it--;
+	return *it;
+}
+
+void TCSceneManager::set_pre_value(Json::Value _value) {
+	std::list<Json::Value>::iterator it = value_list.end();
+	if(it == value_list.begin())
+		return;
+	it--;
+	if(it == value_list.begin())
+		return;
+	it--;
+	*it = _value;
+}
+
+Json::Value TCSceneManager::get_cur_value() {
+	std::list<Json::Value>::iterator it = value_list.end();
+	if(it == value_list.begin())
+		return Json::nullValue;
+	it--;
+	return *it;
+}
+
+void TCSceneManager::set_cur_value(Json::Value _value) {
+	std::list<Json::Value>::iterator it = value_list.end();
+	if(it == value_list.begin())
+		return;
+	it--;
+	*it = _value;
+}
+
 //bool _a[3][4];
 
 void TCSceneManager::Update() {

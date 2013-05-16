@@ -59,6 +59,11 @@ namespace Touched {
 		void Reload();
 		void ClearHistory();
 		
+		Json::Value get_pre_value();
+		void set_pre_value(Json::Value _value);
+		Json::Value get_cur_value();
+		void set_cur_value(Json::Value _value);
+		
 		void Update();
 		
 		friend class TCScene;
