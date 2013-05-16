@@ -46,7 +46,6 @@ void TCPage::Init() {
 }
 
 TCPage::~TCPage() {
-	Clean();
 }
 
 void TCPage::Clean() {
