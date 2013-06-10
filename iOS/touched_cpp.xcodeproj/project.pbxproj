@@ -478,6 +478,7 @@
 		AC83A8F716C4F8BF0091D69A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				DSTROOT = /tmp/touched_cpp.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "touched_cpp/touched_cpp-Prefix.pch";
@@ -494,6 +495,7 @@
 		AC83A8F816C4F8BF0091D69A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				DSTROOT = /tmp/touched_cpp.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "touched_cpp/touched_cpp-Prefix.pch";
